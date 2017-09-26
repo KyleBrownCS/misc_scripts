@@ -12,6 +12,8 @@ players = {
     "KBr":  ["ATL", "DAL", "BAL", "NO"],
     "Brad": ["TB", "NYG", "BUF", "IND"]
 }
+
+
 def _get_total_records(records):
     """This will take a list of string records and will add them all together and return the results"""
     result = ""
@@ -26,7 +28,6 @@ def _get_total_records(records):
         losses += int(loss)
         ties += int(ties)
 
-
     return str(wins) + "-" + str(losses) + "-" + str(ties)
 
 
@@ -35,15 +36,6 @@ def _generate_extra_details(team_details, player_details):
 
     intro = "        record  W  L  pts  pts_agst  rem\r\n"
     output = ""
-
-    """
-        team_details[team_names[data['team_id']]] = {}
-        team_details[team_names[data['team_id']]]["wins"] = 0
-        team_details[team_names[data['team_id']]]["losses"] = 0
-        team_details[team_names[data['team_id']]]["points"] = 0
-        team_details[team_names[data['team_id']]]["record"] = "N/A"
-        team_details[team_names[data['team_id']]]["games_remain"] = 0
-    """
 
     for name, teams in players.items():
         output += intro
@@ -78,6 +70,7 @@ def _generate_extra_details(team_details, player_details):
         output += "\r\n"
 
     return output
+
 
 def _generate_output(players_stats):
     """Takes a list of players and their total teams stats and transforms the data into a nice print out."""
